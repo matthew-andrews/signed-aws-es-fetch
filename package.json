@@ -1,6 +1,6 @@
 {
   "name": "signed-aws-es-fetch",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "main.js",
   "dependencies": {
     "aws4": "matthew-andrews/aws4#patch-1",
