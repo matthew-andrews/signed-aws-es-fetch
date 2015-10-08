@@ -1,5 +1,13 @@
 # signed-aws-es-fetch
 
+## Install
+
+```
+npm install signed-aws-es-fetch
+```
+
+## Usage
+
 For credentials either:-
 
 - Specify them in the following format as the third argument to signedFetch:-
