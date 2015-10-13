@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "dependencies": {
-    "aws4": "matthew-andrews/aws4#patch-1",
+    "aws4": "^1.1.0",
     "denodeify": "^1.2.1",
     "node-fetch": "^1.3.3"
   },
