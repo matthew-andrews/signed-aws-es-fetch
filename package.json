@@ -1,6 +1,6 @@
 {
   "name": "signed-aws-es-fetch",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "main.js",
   "dependencies": {
     "aws4": "^1.1.0",
