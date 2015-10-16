@@ -1,7 +1,7 @@
 'use strict';
 
 const aws4 = require('aws4');
-const fetch = global.fetch || require('node-fetch');
+const nodeFetch = require('node-fetch');
 const urlParse = require('url').parse;
 const resolveCname = require('denodeify')(require('dns').resolveCname);
 
@@ -33,5 +33,8 @@ function signedFetch(url, opts, creds) {
 	};
 	aws4.sign(signable, creds);
 	opts.headers = signable.headers;
-	return fetch(`${urlObject.protocol}//${opts.headers.Host}${signable.path}`, opts);
+
+	// Try to use a global fetch here if possible otherwise risk getting a handle
+	// on the wrong fetch reference (ie. not a mocked one if in a unit test)
+	return (global.fetch || nodeFetch)(`${urlObject.protocol}//${opts.headers.Host}${signable.path}`, opts);
 }
