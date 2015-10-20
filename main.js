@@ -8,7 +8,7 @@ const resolveCname = require('denodeify')(require('dns').resolveCname);
 module.exports = function(url, opts, creds) {
 	opts = opts || {};
 	let urlObject = urlParse(url);
-	if (/\.es\.amazonaws\.com$/.test(urlObject.host)) {
+	if (/\.es\.amazonaws\.com$/.test(urlObject.host) || process.env.AWS_SIGNED_FETCH_DISABLE_DNS_RESOLUTION) {
 		return signedFetch(url, opts, creds);
 	} else {
 		return resolveCname(urlObject.host)
