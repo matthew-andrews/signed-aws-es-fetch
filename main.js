@@ -20,7 +20,7 @@ module.exports = function(url, opts, creds) {
 
 function signedFetch(url, opts, creds) {
 	creds = creds || {};
-	creds.accessKeyId  = creds.accessKeyId || process.env.ES_AWS_ACCESS_KEY || process.env.AWS_ACCESS_KEY;
+	creds.accessKeyId  = creds.accessKeyId || process.env.ES_AWS_ACCESS_KEY || process.env.AWS_ACCESS_KEY || process.env.AWS_ACCESS_KEY_ID;
 	creds.secretAccessKey  = creds.secretAccessKey || process.env.ES_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY;
 
 	const urlObject = urlParse(url);
