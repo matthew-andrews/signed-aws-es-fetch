@@ -18,7 +18,7 @@ signedFetch(url, opts, { accessKeyId: ???, secretAccessKey: ??? });
 
 - Or, set `ES_AWS_ACCESS_KEY` and `ES_AWS_SECRET_ACCESS_KEY` environment variables, or
 - Set `AWS_ACCESS_KEY` and `AWS_SECRET_ACCESS_KEY` environment variables, or
-- Set the `ES_AWS_SESSION_TOKEN` or `AWS_SESSION_TOKEN` environment variables. If you don't want this to be automatically picked up (for example in a Lambda where the `AWS_SESSION_TOKEN` may reflect an assumed role), set `ES_AWS_SESSION_TOKEN` to disable this.
+- Set the `ES_AWS_SESSION_TOKEN` or `AWS_SESSION_TOKEN` environment variables. If you don't want this to be automatically picked up (for example in a Lambda where the `AWS_SESSION_TOKEN` may reflect an assumed role), set `ES_AWS_SESSION_TOKEN` to `false` to disable this.
 
 ```js
 const signedFetch = require('signed-aws-es-fetch');
