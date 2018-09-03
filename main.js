@@ -23,11 +23,14 @@ function signedFetch(url, opts, creds) {
 	creds.accessKeyId  = creds.accessKeyId || process.env.ES_AWS_ACCESS_KEY || process.env.AWS_ACCESS_KEY || process.env.AWS_ACCESS_KEY_ID;
 	creds.secretAccessKey  = creds.secretAccessKey || process.env.ES_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY;
 
-	const sessionToken = creds.sessionToken || process.env.ES_AWS_SESSION_TOKEN || process.env.AWS_SESSION_TOKEN;	
+	let sessionToken = creds.sessionToken;
+	if (process.env.ES_AWS_SESSION_TOKEN !== false) {
+		sessionToken = sessionToken || process.env.ES_AWS_SESSION_TOKEN || process.env.AWS_SESSION_TOKEN;
+	}
 	if (sessionToken) {
 		creds.sessionToken = sessionToken;
 	}
-	
+
 	const urlObject = urlParse(url);
 	const signable = {
 		method: opts.method,
