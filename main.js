@@ -24,7 +24,7 @@ function signedFetch(url, opts, creds) {
 	creds.secretAccessKey  = creds.secretAccessKey || process.env.ES_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY;
 
 	let sessionToken = creds.sessionToken;
-	if (process.env.ES_AWS_SESSION_TOKEN !== false) {
+	if (process.env.ES_AWS_SESSION_TOKEN !== 'false') {
 		sessionToken = sessionToken || process.env.ES_AWS_SESSION_TOKEN || process.env.AWS_SESSION_TOKEN;
 	}
 	if (sessionToken) {
