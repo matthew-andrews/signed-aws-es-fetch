@@ -6,7 +6,8 @@ const urlParse = require('url').parse;
 const resolveCname = require('denodeify')(require('dns').resolveCname);
 
 module.exports = function(url, opts, creds) {
-	opts = opts || {};
+	// Avoid mutating opts, it can lead to some odd results
+	opts = opts ? JSON.parse(JSON.stringify(opts)) : {};
 	let urlObject = urlParse(url);
 	if (/\.es\.amazonaws\.com$/.test(urlObject.host) || process.env.AWS_SIGNED_FETCH_DISABLE_DNS_RESOLUTION) {
 		return signedFetch(url, opts, creds);
